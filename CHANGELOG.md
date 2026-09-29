@@ -17,6 +17,7 @@
 
 - fix: |收件| 黑名单同时检查 SMTP 信封发件人与邮件头 From 的全部邮箱地址，任意一个命中即拒收；独立解析地址，避免正文解析失败或多个发件地址导致漏拦截；地址解析异常时保留原有信封检查
 - fix: |AI 识别| `ai` 模式下地址未命中 AI 提取白名单时只跳过 Workers AI 调用，仍回退到本地规则提取验证码
+- fix: |GitHub Actions| 后端部署 workflow 在同名 secrets 为空时回退读取 repository variables，避免 Cloudflare 凭据或 `BACKEND_TOML` 为空导致部署失败
 
 ### Improvements
 
