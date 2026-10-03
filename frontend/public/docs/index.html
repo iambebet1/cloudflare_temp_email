@@ -1,0 +1,200 @@
+    <!DOCTYPE html>                                                                           
+    <html lang="en" class="dark">                                                             
+    <head>                                                                                    
+        <meta charset="UTF-8">                                                                
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">                
+        <title>API Documentation - 4AM TempMail</title>                                       
+        <!-- Tailwind CSS CDN -->                                                             
+        <script src="https://cdn.tailwindcss.com"></script>                                   
+        <script>                                                                              
+            tailwind.config = {                                                               
+                darkMode: 'class',                                                            
+                theme: {                                                                      
+                    extend: {                                                                 
+                        colors: {                                                             
+                            brand: { 500: '#8b5cf6', 600: '#7c3aed' }                         
+                        }                                                                     
+                    }                                                                         
+                }                                                                             
+            }                                                                                 
+        </script>                                                                             
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4. 
+  0/css/all.min.css">                                                                         
+        <!-- ĐẶT MÃ ADS (MONETAG / ADSENSE) CỦA BẠN TẠI ĐÂY -->                               
+    </head>                                                                                   
+    <body class="bg-[#0f172a] text-slate-200 font-sans antialiased min-h-screen flex flex-col 
+  md:flex-row">                                                                               
+                                                                                              
+        <!-- SIDEBAR -->                                                                      
+        <aside class="w-full md:w-64 bg-[#1e293b] border-r border-slate-700/60 p-6 flex flex- 
+  col shrink-0">                                                                              
+            <div class="flex items-center gap-3 mb-8">                                        
+                <i class="fa-solid fa-bolt text-purple-400 text-2xl"></i>                     
+                <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400   
+  bg-clip-text text-transparent">4AM Mail API</span>                                          
+            </div>                                                                            
+                                                                                              
+            <nav class="space-y-1 text-sm flex-1">                                            
+                <a href="#intro" class="block px-3 py-2 rounded-lg bg-purple-600/20 text-     
+  purple-400 font-medium">Giới thiệu chung</a>                                                
+                <a href="#auth" class="block px-3 py-2 rounded-lg hover:bg-slate-800 text-    
+  slate-400 hover:text-slate-200">Xác thực (Auth)</a>                                         
+                <div class="pt-4 pb-2 text-xs font-semibold uppercase text-slate-500 tracking-
+  wider">Endpoints</div>                                                                      
+                <a href="#get-mails" class="block px-3 py-2 rounded-lg hover:bg-slate-800     
+  text-slate-400 hover:text-slate-200">                                                       
+                    <span class="text-emerald-400 font-mono text-xs mr-1">GET</span> Lấy Mail 
+  / OTP                                                                                       
+                </a>                                                                          
+                <a href="#get-detail" class="block px-3 py-2 rounded-lg hover:bg-slate-800    
+  text-slate-400 hover:text-slate-200">                                                       
+                    <span class="text-emerald-400 font-mono text-xs mr-1">GET</span> Xem chi  
+  tiết thư                                                                                    
+                </a>                                                                          
+                <a href="#code-examples" class="block px-3 py-2 rounded-lg hover:bg-slate-800 
+  text-slate-400 hover:text-slate-200">Code mẫu Python</a>                                    
+            </nav>                                                                            
+                                                                                              
+            <div class="mt-8 pt-4 border-t border-slate-700/60 text-xs text-slate-500">       
+                &copy; 2026 4AM Services. All rights reserved.                                
+            </div>                                                                            
+        </aside>                                                                              
+                                                                                              
+        <!-- MAIN CONTENT -->                                                                 
+        <main class="flex-1 p-6 md:p-12 max-w-5xl overflow-y-auto">                           
+            <!-- BANNER ADS (NẾU CÓ) -->                                                      
+            <div class="mb-8 p-4 border border-dashed border-slate-700 rounded-xl bg-slate-   
+  800/40 text-center text-xs text-slate-500">                                                 
+                [Vị trí đặt banner Ads ngang tại đây]                                         
+            </div>                                                                            
+                                                                                              
+            <!-- HERO / INTRO -->                                                             
+            <section id="intro" class="mb-12">                                                
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-    
+  purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">                       
+                    Tài liệu Tích hợp API                                                     
+                </h1>                                                                         
+                <p class="text-slate-400 leading-relaxed">                                    
+                    Hệ thống API tốc độ cao, hỗ trợ bóc mã OTP và kích hoạt tài khoản số lượng
+  lớn (SLL). Nhận thư tức thì theo thời gian thực (Zero Latency), hỗ trợ Catch-All không giới 
+  hạn tiền tố email.                                                                          
+                </p>                                                                          
+                <div class="mt-6 p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex  
+  items-center justify-between">                                                              
+                    <div>                                                                     
+                        <span class="text-xs font-semibold uppercase text-purple-400">Base    
+  URL</span>                                                                                  
+                        <div class="font-mono text-sm text-slate-200">https://4amservices.    
+  com</div>                                                                                   
+                    </div>                                                                    
+                    <span class="px-2.5 py-1 text-xs rounded-full bg-emerald-500/20 text-     
+  emerald-400 font-medium">Online 99.99%</span>                                               
+                </div>                                                                        
+            </section>                                                                        
+                                                                                              
+            <!-- AUTHENTICATION -->                                                           
+            <section id="auth" class="mb-12">                                                 
+                <h2 class="text-2xl font-bold mb-3 text-white">Xác thực (Authentication)</h2> 
+                <p class="text-slate-400 mb-4 text-sm">                                       
+                    Mọi request gọi vào hệ thống đều cần truyền token qua Header <code        
+  class="bg-slate-800 text-purple-300 px-2 py-0.5 rounded font-mono">x-admin-auth</code>:     
+                </p>                                                                          
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono     
+  text-sm text-slate-300">                                                                    
+                    x-admin-auth: <span class="text-purple-400">&lt;YOUR_API_TOKEN&gt;</span> 
+                </div>                                                                        
+            </section>                                                                        
+                                                                                              
+            <!-- ENDPOINT: GET MAILS -->                                                      
+            <section id="get-mails" class="mb-12">                                            
+                <div class="flex items-center gap-3 mb-3">                                    
+                    <span class="px-2.5 py-1 text-xs font-bold rounded bg-emerald-500/20 text-
+  emerald-400 font-mono">GET</span>                                                           
+                    <h2 class="text-xl font-bold text-white">/admin/mails</h2>                
+                </div>                                                                        
+                <p class="text-slate-400 mb-4 text-sm">Lấy danh sách các email gửi về cho một 
+  địa chỉ cụ thể.</p>                                                                         
+                                                                                              
+                <h3 class="text-sm font-semibold uppercase text-slate-400 mb-2">Query         
+  Parameters</h3>                                                                             
+                <div class="overflow-x-auto mb-6">                                            
+                    <table class="w-full text-left text-sm border-collapse">                  
+                        <thead>                                                               
+                            <tr class="border-b border-slate-800 text-slate-400 text-xs">     
+                                <th class="py-2">Field</th>                                   
+                                <th class="py-2">Type</th>                                    
+                                <th class="py-2">Bắt buộc</th>                                
+                                <th class="py-2">Mô tả</th>                                   
+                            </tr>                                                             
+                        </thead>                                                              
+                        <tbody class="divide-y divide-slate-800/60 font-mono text-xs">        
+                            <tr>                                                              
+                                <td class="py-2 text-purple-400 font-semibold">address</td>   
+                                <td class="py-2 text-slate-400">string</td>                   
+                                <td class="py-2 text-emerald-400">Yes</td>                    
+                                <td class="py-2 text-slate-300 font-sans">Địa chỉ email cần   
+  lấy tin nhắn (vd: alex123@4amservices.com)</td>                                             
+                            </tr>                                                             
+                            <tr>                                                              
+                                <td class="py-2 text-purple-400 font-semibold">limit</td>     
+                                <td class="py-2 text-slate-400">integer</td>                  
+                                <td class="py-2 text-slate-500">No</td>                       
+                                <td class="py-2 text-slate-300 font-sans">Số lượng mail tối đa
+  muốn lấy (mặc định: 10)</td>                                                                
+                            </tr>                                                             
+                        </tbody>                                                              
+                    </table>                                                                  
+                </div>                                                                        
+                                                                                              
+                <h3 class="text-sm font-semibold uppercase text-slate-400 mb-2">Response Mẫu  
+  (JSON)</h3>                                                                                 
+                <pre class="bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono     
+  text-xs text-slate-300 overflow-x-auto">                                                    
+    {                                                                                         
+      "results": [                                                                            
+        {                                                                                     
+          "id": 1042,                                                                         
+          "address": "alex123@4amservices.com",                                               
+          "raw_mail": "From: Discord &lt;noreply@discord.com&gt;...\nYour verification code   
+  is: 849201",                                                                                
+          "created_at": "2026-10-03T04:12:00.000Z"                                            
+        }                                                                                     
+      ],                                                                                      
+      "count": 1                                                                              
+    }</pre>                                                                                   
+            </section>                                                                        
+                                                                                              
+            <!-- CODE EXAMPLES -->                                                            
+            <section id="code-examples" class="mb-12">                                        
+                <h2 class="text-2xl font-bold mb-4 text-white">Code mẫu bóc OTP (Python)</h2> 
+                <pre class="bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono     
+  text-xs text-slate-300 overflow-x-auto leading-relaxed">                                    
+    <span class="text-purple-400">import</span> requests, re, time
+  
+    BASE_URL = <span class="text-emerald-300">"https://4amservices.com"</span>
+    API_TOKEN = <span class="text-emerald-300">"MatKhauAdminCuaBan123@"</span>
+  
+    <span class="text-purple-400">def</span> <span class="text-blue-
+  400">get_otp</span>(email):
+        url = f<span class="text-emerald-300">"{BASE_URL}/admin/mails?address={email}"</span> 
+        headers = {<span class="text-emerald-300">"x-admin-auth"</span>: API_TOKEN}           
+        
+        <span class="text-purple-400">for</span> _ <span class="text-purple-400">in</span>    
+  range(20):
+            res = requests.get(url, headers=headers).json()
+            <span class="text-purple-400">if</span> res.get(<span class="text-emerald-        
+  300">"results"</span>):
+                mail_text = res[<span class="text-emerald-300">"results"</span>][0][<span     
+  class="text-emerald-300">"raw_mail"</span>]
+                otp = re.findall(r<span class="text-emerald-300">"\b\d{6}\b"</span>,          
+  mail_text)
+                <span class="text-purple-400">if</span> otp:
+                    <span class="text-purple-400">return</span> otp[0]
+            time.sleep(3)
+        <span class="text-purple-400">return</span> <span class="text-red-
+  400">None</span></pre>
+            </section>
+        </main>
+  
+    </body>
+    </html>
