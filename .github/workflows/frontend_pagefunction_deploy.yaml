@@ -27,11 +27,11 @@
               PAGE_TOML: ${{ secrets.PAGE_TOML }}                                             
                                                                                               
       deploy:                                                                                 
-        needs: check                                                                          
-        if: ${{ needs.check.outputs.has_config == 'true' }}                                   
-        runs-on: ubuntu-latest                                                                
-        steps:                                                                                
-          - name: Checkout                                                                    
+        needs: check
+        if: ${{ needs.check.outputs.has_config == 'true' }}
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
             uses: actions/checkout@v6
   
           - name: Install Node.js
